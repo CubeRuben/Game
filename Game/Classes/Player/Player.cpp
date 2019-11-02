@@ -36,7 +36,7 @@ void Player::step(World* world)
 	force.x = 0;
 	force.y = world->g * mass;
 
-	/*for (int y = position.y / 16; y < position.y + force.x / mass * 1.f / 60.f + speed.x * 1.f / 60.f; y++)
+	for (int y = position.y / 16; y < position.y + force.x / mass * 1.f / 60.f + speed.x * 1.f / 60.f; y++)
 	{
 		if (world->getBlock(position.x / 16, y)) 
 		{
