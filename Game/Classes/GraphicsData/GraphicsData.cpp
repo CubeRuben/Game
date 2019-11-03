@@ -17,6 +17,11 @@ void GraphicsData::loadTextures()
 	}
 }
 
+/*void GraphicsData::loadShaders() 
+{
+	shaders[0].loadFromFile("assets/shaders/test.vert", "assets/shaders/test.frag");
+}*/
+
 void GraphicsData::setSprites()
 {
 	for (int i = 0; i < countOfTextures; i++) 
@@ -24,3 +29,5 @@ void GraphicsData::setSprites()
 		sprites[i].setTexture(textures[i]);
 	}
 }
+
+

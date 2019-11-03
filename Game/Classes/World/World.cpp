@@ -66,7 +66,7 @@ void World::step()
 
 void World::draw(sf::RenderWindow* window, GraphicsData* graphicsData, sf::Vector2<float> cameraPosition)
 {
-	for (int x = 0; x < worldSize.x; x++)
+	for (int x = (cameraPosition.x - window->getSize().x / 2) / 16; x < (cameraPosition.x + window->getSize().x / 2) / 16; x++)
 	{
 		for (int y = 0; y < worldSize.y; y++)
 		{
