@@ -5,21 +5,23 @@
 class GraphicsData
 {
 public:
-	const int countOfTextures = 1;
+	const int imageCount = 1;
 	//const int countOfShaders = 1;
 	const std::string paths[1] = { 
 		"assets/blocks/stone.png" 
 	};
 
-	sf::Texture* textures = new sf::Texture[countOfTextures];
-	sf::Sprite* sprites = new sf::Sprite[countOfTextures];
+	sf::Image* images = new sf::Image[imageCount];
+	//sf::Sprite* sprites = new sf::Sprite[countOfTextures];
 	//sf::Shader* shaders = new sf::Shader[countOfShaders];
 
 	GraphicsData();
 
-	void loadTextures();
+	void loadImages();
+
+	//void loadTextures();
 	/*void loadShaders();
 	void compileShaders();*/
-	void setSprites();
+	//void setSprites();
 };
 

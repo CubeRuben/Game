@@ -6,7 +6,15 @@ GraphicsData::GraphicsData()
 
 }
 
-void GraphicsData::loadTextures() 
+void GraphicsData::loadImages() 
+{
+	for (int i = 0; i < imageCount; i++) 
+	{
+		images[i].loadFromFile(paths[i]);
+	}
+}
+
+/*void GraphicsData::loadTextures() 
 {
 	for (int i = 0; i < countOfTextures; i++) 
 	{
@@ -15,19 +23,19 @@ void GraphicsData::loadTextures()
 			std::cout << "File loaded from: " << paths[i] << std::endl;
 		}
 	}
-}
+}*/
 
 /*void GraphicsData::loadShaders() 
 {
 	shaders[0].loadFromFile("assets/shaders/test.vert", "assets/shaders/test.frag");
 }*/
 
-void GraphicsData::setSprites()
+/*void GraphicsData::setSprites()
 {
-	for (int i = 0; i < countOfTextures; i++) 
+	/*for (int i = 0; i < countOfTextures; i++) 
 	{
 		sprites[i].setTexture(textures[i]);
 	}
-}
+}*/
 
 

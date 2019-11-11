@@ -6,7 +6,9 @@ class World
 {
 public:
 	int** gridOfBlocks = nullptr;
+	sf::Image** chunks = nullptr;
 	sf::Vector2<int> worldSize;
+	sf::Vector2<int> chunksCount;
 	float g;
 
 	World();
@@ -20,5 +22,6 @@ public:
 	void step();
 	void draw(sf::RenderWindow *window, GraphicsData* graphicsData, sf::Vector2<float> cameraPosition);
 private:
-	void generateArray();
+	void updateChunks(GraphicsData* graphicsData);
+	void generateArrays();
 }; 

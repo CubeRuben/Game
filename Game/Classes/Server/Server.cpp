@@ -4,7 +4,7 @@ Server::Server()
 {
 	std::cout << "Creating server" << std::endl;
 	player = Player(0, 0);
-	world = World(100, 30);
+	world = World(160, 160);
 }
 
 void Server::step() 

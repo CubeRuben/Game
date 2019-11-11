@@ -20,8 +20,9 @@ int main()
 	std::cout << "Created window" << std::endl; 
 
 	GraphicsData graphicsData;
-	graphicsData.loadTextures();
-	graphicsData.setSprites();
+	graphicsData.loadImages();
+	//graphicsData.loadTextures();
+	//graphicsData.setSprites();
 	//graphicsData.loadShaders();
 
 	Server server;

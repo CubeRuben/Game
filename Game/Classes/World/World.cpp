@@ -6,12 +6,7 @@
 
 World::World() 
 {
-	worldSize.x = 0;
-	worldSize.y = 0;
-
 	g = 9.81f;
-
-	generateArray();
 }
 
 World::World(int size_x, int size_y) 
@@ -21,7 +16,7 @@ World::World(int size_x, int size_y)
 
 	g = 9.81f;
 
-	generateArray();
+	generateArrays();
 }
 
 World::World(sf::Vector2<int> worldSize)
@@ -30,7 +25,10 @@ World::World(sf::Vector2<int> worldSize)
 
 	g = 9.81f;
 
-	generateArray();
+	this->chunksCount.x = worldSize.x / 16;
+	this->chunksCount.y = worldSize.y / 16;
+
+	generateArrays();
 }
 
 int World::getBlock(int x, int y)
@@ -81,7 +79,25 @@ void World::draw(sf::RenderWindow* window, GraphicsData* graphicsData, sf::Vecto
 	}
 }
 
-void World::generateArray() 
+void World::updateChunks(GraphicsData* graphicsData)
+{
+	for (int cx = 0; cx < chunksCount.x; cx++) 
+	{
+		for (int cy = 0; cy < chunksCount.y; cy++)
+		{
+			for (int gx = 0; gx < chunksCount.x; gx++)
+			{
+				for (int gy = 0; gy < chunksCount.y; gy++)
+				{
+
+					chunks[cx][cy].copy(graphicsData->images[gridOfBlocks[gx][gy]], cy * 16, gy * 16);
+				}
+			}
+		}
+	}
+}
+
+void World::generateArrays() 
 {
 	gridOfBlocks = new int* [worldSize.x];
 	for (int i = 0; i < worldSize.x; i++)
@@ -94,6 +110,22 @@ void World::generateArray()
 		for (int y = 0; y < worldSize.y; y++)
 		{
 			gridOfBlocks[x][y] = 0;
+		}
+	}
+
+	chunks = new sf::Image* [chunksCount.x];
+
+	for (int i = 0; i < chunksCount.x; i++) 
+	{
+		chunks[i] = new sf::Image[chunksCount.y];
+	}
+
+	for (int x = 0; x < chunksCount.x; x++)
+	{
+		for (int y = 0; y < chunksCount.y; y++)
+		{
+			chunks[x][y] = sf::Image();
+			chunks[x][y].create(256, 256);
 		}
 	}
 }
